@@ -3,15 +3,26 @@ import Swappable from './components/SwappableComponent'
 import './App.css';
 
 class App extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            data: [
+                { order: 1, data: 'I am test 1' },
+                { order: 2, data: 'I am test 2' },
+                { order: 3, data: 'I am test 3' },
+                { order: 4, data: 'I am test 4' },
+            ]
+        }
+    }
+
     sampleCustomFunction() {
         alert('TEST')
     }
     render() {
         return (
             <div>
-                <Swappable id='1' content="#1" customFunc={() => this.sampleCustomFunction()}/>
-                <Swappable id='2' content="#2"/>
-                <Swappable id='3' content="#3"/>
+                <Swappable data={ this.state.data } customFunc={() => this.sampleCustomFunction()}/>
             </div>
         );
     }
